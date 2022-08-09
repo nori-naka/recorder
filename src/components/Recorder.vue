@@ -32,6 +32,7 @@ const record_start = async () => {
     mr.onstop = (ev) => {
       const [ track ] = stream.getVideoTracks();
       track.stop();
+      emit("on_error", record_state.value);
     }
     mr.start();
   } catch (err) {
